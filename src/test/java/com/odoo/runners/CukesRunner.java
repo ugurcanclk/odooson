@@ -9,8 +9,9 @@ import org.junit.runner.RunWith;
         plugin = {"json:target/cucumber.json","html:target/default-cucumber-reports"},
         features = "src/test/resources/features",  //buradaki siralama onemli degil  // features = "src/test/resources/features/Login.feature",
         glue = "com/vytrack/step_definitions",
-        dryRun = false,
-        tags = "@parametre"
+        dryRun = true,
+        tags = "@par"
+
 )
 public class CukesRunner {
 }
