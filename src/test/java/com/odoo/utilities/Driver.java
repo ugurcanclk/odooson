@@ -19,7 +19,7 @@ public class Driver {
 
     private static WebDriver driver;
     private static int abc;
-
+    private static int abcde;
     public static WebDriver get() {
         if (driver == null) {
             // this line will tell which browser should open based on the value from properties file
