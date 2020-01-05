@@ -13,29 +13,22 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
+
 public abstract class BasePage {
 
-    @FindBy (className = "oe_menu_text")
+
+    @FindBy(className = "oe_menu_text")
     public WebElement sales;
 
+    @FindBy(css = "oe_menu_text")
+    public WebElement calender;
 
+    @FindBy(css = "div[class='loader-mask shown']")
+    @CacheLookup
+    protected WebElement loaderMask;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    @FindBy(className = "active")
+    public WebElement pageSubTitle;
 
 
 
@@ -73,25 +66,7 @@ public abstract class BasePage {
 
     }
 
-    public String getUserName(){
-        waitUntilLoaderScreenDisappear();
-        BrowserUtils.waitForVisibility(userName, 5);
-        return userName.getText();
-    }
 
-
-
-    public void logOut(){
-        BrowserUtils.waitFor(2);
-        BrowserUtils.clickWithJS(userName);
-        BrowserUtils.clickWithJS(logOutLink);
-    }
-    public void goToMyUser(){
-        waitUntilLoaderScreenDisappear();
-        BrowserUtils.waitForClickablility(userName, 5).click();
-        BrowserUtils.waitForClickablility(myUser, 5).click();
-
-    }
 
     /**
      * This method will navigate user to the specific module in vytrack application.
