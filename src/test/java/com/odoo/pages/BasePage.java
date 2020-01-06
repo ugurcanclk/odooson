@@ -16,57 +16,23 @@ import java.util.List;
 
 public abstract class BasePage {
 
-
-    @FindBy(className = "oe_menu_text")
-    public WebElement sales;
-
-    @FindBy(xpath = "//span[contains (text(),'Calendar')]")
-    public WebElement calendar;
-
-    @FindBy(css = "div[class='loader-mask shown']")
-    @CacheLookup
-    protected WebElement loaderMask;
-
-    @FindBy(className = "active")
-    public WebElement pageSubTitle;
-
-
-
-
-
-
     public BasePage() {
         PageFactory.initElements(Driver.get(), this);
     }
 
+    @FindBy(xpath = "//span[contains (text(),'Sales')]")
+    public WebElement sales;
 
-    /**
-     * @return page name, for example: Dashboard
-     */
-    public String getPageSubTitle() {
-        //ant time we are verifying page name, or page subtitle, loader mask appears
-        waitUntilLoaderScreenDisappear();
-//        BrowserUtils.waitForStaleElement(pageSubTitle);
-        return pageSubTitle.getText();
+    @FindBy(xpath = "//span[contains (text(),'CRM')]")
+    public WebElement crm;
+
+    @FindBy(xpath = "//span[contains (text(),'Calendar')]")
+    public WebElement calendar;
+
+    public String getTitle(){
+        String title=Driver.get().getTitle();
+        return title;
     }
-
-
-    /**
-     * Waits until loader screen present. If loader screen will not pop up at all,
-     * NoSuchElementException will be handled  bu try/catch block
-     * Thus, we can continue in any case.
-     */
-    public void waitUntilLoaderScreenDisappear() {
-        try {
-            WebDriverWait wait = new WebDriverWait(Driver.get(), 5);
-            wait.until(ExpectedConditions.invisibilityOf(loaderMask));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
-
-
 
     /**
      * This method will navigate user to the specific module in vytrack application.
@@ -96,5 +62,6 @@ public abstract class BasePage {
             BrowserUtils.clickWithTimeOut(Driver.get().findElement(By.xpath(moduleLocator)),  5);
         }
     }
+
 
 }
