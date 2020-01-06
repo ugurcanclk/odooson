@@ -20,8 +20,8 @@ public abstract class BasePage {
     @FindBy(className = "oe_menu_text")
     public WebElement sales;
 
-    @FindBy(css = "oe_menu_text")
-    public WebElement calender;
+    @FindBy(xpath = "//span[contains (text(),'Calendar')]")
+    public WebElement calendar;
 
     @FindBy(css = "div[class='loader-mask shown']")
     @CacheLookup
