@@ -10,7 +10,8 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",  //buradaki siralama onemli degil  // features = "src/test/resources/features/Login.feature",
         glue = "com/odoo/step_definitions",
         dryRun = false,
-        tags = "@sales_manager"
+        tags = "@sales"
+
 )
 public class CukesRunner {
 }
