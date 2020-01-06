@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         plugin = {"json:target/cucumber.json","html:target/default-cucumber-reports"},
-        features = "src/test/resources/features",  //buradaki siralama onemli degil  // features = "src/test/resources/features/Login.feature",
+        features = "src/test/resources/features",
         glue = "com/odoo/step_definitions",
         dryRun = false,
         tags = "@sales"

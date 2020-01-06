@@ -21,7 +21,7 @@ public class Hooks {
     @After
     public void tearDown(Scenario scenario){
         System.out.println("This is coming from after scenario\n");
-        //i f scenario fails, take a screenshot
+        //if scenario fails, take a screenshot
         if(scenario.isFailed()){
             final byte [] screenshot= ((TakesScreenshot) Driver.get()).getScreenshotAs(OutputType.BYTES);
             scenario.embed(screenshot,"image/png");
